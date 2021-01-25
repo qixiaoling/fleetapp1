@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -400,7 +400,26 @@
           </div>
         </div>
         <!-- page start-->
-        <h1>List of Countries</h1>
+          <table class="table">
+              <thead>
+              <tr>
+                  <th>id</th>
+                  <th>Description</th>
+                  <th>Capital</th>
+                  <th>Code</th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr th:each="country:${countires}">
+
+                  <td th:text="${country.id}"></td>
+                  <td th:text="${country.description}"></td>
+                  <td th:text="${country.capital}"></td>
+                  <td th:text="${country.code}"></td>
+              </tr>
+              </tbody>
+          </table>
         <!-- page end-->
       </section>
     </section>
