@@ -13,9 +13,11 @@ import java.util.*;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class)
-public class Country {
+public class Country{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(columnDefinition = "serial")
     private Integer id;
     private String code;
     private String capital;
@@ -29,8 +31,8 @@ public class Country {
     public Country() {
     }
 
-    public Country(Integer id, String code, String capital, String description, String nationality, String continent, List<State> states) {
-        this.id = id;
+    public Country(String code, String capital, String description, String nationality, String continent, List<State> states) {
+
         this.code = code;
         this.capital = capital;
         this.description = description;
